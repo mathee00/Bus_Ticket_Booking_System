@@ -3,7 +3,7 @@ This is the repo for the group project of the ITPM module.
 
 ## Group No :  REG/WD/02
 
-## Group Members :
+### Group Members :
 
 
 | IT Number | Name |
@@ -13,10 +13,11 @@ This is the repo for the group project of the ITPM module.
 | IT20116910 | Ifham N.M |
 | IT20195366 | Prasad Dananjaya Wilagama |
 
-## Tools and Technologies used: 
+### Tools and Technologies used: 
 - PHP
 - VS code
 - XAMPP server
+- MySQL
 - Azure Boards
 - SonarQube
 - Selenium
