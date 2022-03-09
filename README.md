@@ -1,2 +1,2 @@
 # Bus_Ticket_Booking_System
-This is the group project for the ITPM module
+This is the repo for the group project of the ITPM module.
