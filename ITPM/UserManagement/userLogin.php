@@ -15,7 +15,7 @@
             <img src="images/logob.png" class="logo">
             <nav>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a class="active" href="#">User Login</a></li>
                     <li><a href="#">Admin Login</a></li>
                 </ul>
@@ -47,7 +47,7 @@
                         <button class = "input-button" name="submit" type = "submit">Login</button>
                     </div>
                     <div>
-                        <span class = "form-signup-link">Don't have an account? <a href = "userRegistration.html">Create Account</a></span>
+                        <span class = "form-signup-link">Don't have an account? <a href = "userRegistration.php">Create Account</a></span>
                     </div>
                 </form>
             </div>
