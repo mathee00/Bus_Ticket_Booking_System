@@ -102,4 +102,59 @@ function createUser($conn, $firstname, $lastname, $username, $email, $password) 
 	header("location: ../userRegistration.php?error=none");
 	exit();
 }
+
+// login
+
+function emptyInputLogin($username, $password) {
+	$result;
+	if (empty($username) || empty($password)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function loginUser($conn, $username, $password) {
+	$usernameExists = usernameExists($conn, $username, $username);
+
+	if ($usernameExists === false) {
+		header("location: ../userLogin.php?error=wrongLogin");
+		exit();
+	}
+
+	$passwordHashed = $usernameExists["password"];
+	$checkpassword = password_verify($password, $passwordHashed);
+
+	if ($checkpassword === false) {
+		header("location: ../userLogin.php?error=wrongLogin");
+		exit();
+	} else if ($checkpassword === true) {
+		session_start();
+		$_SESSION['userid'] = $usernameExists["id"];
+		$_SESSION['username'] = $usernameExists["username"];
+		header("location: ../userDashboard.php");
+		exit();
+	}
+}
+
+function check_login($conn)
+{
+    if(isset($_SESSION['username']))
+    {
+        $username = $_SESSION['username'];
+        $query = "SELECT * FROM user WHERE username = '$username' limit 1";
+
+        $result = mysqli_query($conn,$query);
+        if($result && mysqli_num_rows($result) > 0)
+        {
+            $user_data = mysqli_fetch_assoc($result);
+            return $user_data;
+        }
+    }
+
+    //redirect to login
+    header("Location: ../userLogin.php");
+    die;
+}
 ?>
