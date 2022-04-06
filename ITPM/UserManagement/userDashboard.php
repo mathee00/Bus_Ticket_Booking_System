@@ -1,8 +1,21 @@
+<?php
+session_start();
+
+    include("./includes/config.php");
+    include("./includes/function.php");
+
+    $user_data = check_login($conn);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bus Ticket</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Bus Ticket</title>
+
     <link rel="stylesheet" href="css/userDashboard.css">
     <link rel="shortcut icon" type="image/png" href="images/logob.png">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -19,7 +32,7 @@
                     <li><a href="#">Book Ticket</a></li>
                     <li><a href="#">My Bookings</a></li>
                     <li><a href="#">My Profile</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="./includes/logout.php">Log Out</a></li>
                 </ul>
             </nav>
         </div>
