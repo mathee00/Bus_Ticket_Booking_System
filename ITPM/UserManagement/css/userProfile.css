@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/*----------navigation bar----------*/
+
+.navbar{
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color:  #162328;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:hover{
+    color: #3FC060;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.navbar ul li a.active{
+    color: #3FC060;
+}
+
+.navbar ul li a.active::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+.header hr{
+    background:  #162328;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/*----------user profile----------*/
+
+.cards {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50% auto;
+    grid-gap: 5rem;
+    margin-top: 1rem;
+
+}
+
+/*----------profile update form----------*/
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+	box-shadow: -1px 4px 28px 0px rgba(150, 150, 150, 0.4);
+    padding: 25px 30px;
+    text-align: center;
+}
+
+.container h2 {
+    color: #3FC060;
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-image {
+    width: 25%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.container form .form-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .form-inner .input-box {
+    width: calc(100% / 2 - 50px);
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+
+.form-inner .input-box .form-label {
+    display: block;
+    color: #162328;
+    font-size: 16px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-inner .input-box:focus-within .form-label {
+    color: #3FC060;
+}
+
+.form-inner .input-box input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: 0.4s;
+    color: #162328;
+    font-size: 16px;
+    border: 1px solid #162328;
+}
+
+.form-inner .input-box input:focus {
+    outline: 0;
+    box-shadow: 0px 0px 8px rgba(63, 192, 96, 0.4);
+    border: 1px solid #3FC060;
+}
+
+form .input-button {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    background-size: 200%;
+    background-position: 0%;
+    color: #3FC060;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    border: 1px solid #3FC060;
+    transition: 0.6s;
+}
+
+form .input-button:hover {
+    background-position: 100% 0%;
+    background-color: #3FC060;
+    color: #ffffff;
+    border: 1px solid #3FC060;
+}
+
+.gender {
+    display: block;
+    width: calc(100% / 2 + 156px);
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: 0.4s;
+    color: #162328;
+    font-size: 16px;
+    border: 1px solid #162328;
+}
+
+.gender:focus {
+    outline: 0;
+    box-shadow: 0px 0px 8px rgba(63, 192, 96, 0.4);
+    border: 1px solid #3FC060;
+}
+
+/*----------profile delete form----------*/
+
+.container-delete {
+    max-width: 300px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+	box-shadow: -1px 4px 28px 0px rgba(150, 150, 150, 0.4);
+    padding: 25px 30px;
+    text-align: center;
+}
+
+.container-delete h2 {
+    color: #3FC060;
+    font-size: 38px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.delete-image {
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.container-delete form .delete-form-inner {
+    width: 270px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    gap: 20px;
+    margin: 20px 0 12px 0;
+}
+
+form .delete-form-inner .delete-input-box {
+    width: 100%;
+    position: relative;
+}
+
+.delete-form-inner .delete-input-box .delete-form-label {
+    display: block;
+    color: #162328;
+    font-size: 16px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+    text-align: left;
+}
+
+.delete-form-inner .delete-input-box:focus-within .delete-form-label {
+    color: #3FC060;
+}
+
+.delete-form-inner .delete-input-box input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: 0.4s;
+    color: #162328;
+    font-size: 16px;
+    border: 1px solid #162328;
+    outline: none;
+}
+
+.delete-form-inner .delete-input-box input:focus {
+    box-shadow: 0px 0px 8px rgba(63, 192, 96, 0.4);
+    border: 1px solid #3FC060;
+}
+
+form .delete-button {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    background-size: 200%;
+    background-position: 0%;
+    color: #3FC060;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 25px;
+    width: 112%;
+    border: 1px solid #3FC060;
+    transition: 0.6s;
+}
+
+form .delete-button:hover {
+    background-position: 100% 0%;
+    background-color: #3FC060;
+    color: #ffffff;
+    border: 1px solid #3FC060;
+}
+
+.report-button {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    background-size: 200%;
+    background-position: 0%;
+    color: #162328;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #162328;
+
+}
+
+.report-button:hover {
+    background-position: 100% 0%;
+    background-color: #3FC060;
+    color: #ffffff;
+    border: 1px solid #3FC060;
+}
+
+/*----------footer----------*/
+
+.footer{
+    margin: 80px 0 10px;
+    text-align: center;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #999;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.footer hr{
+    background: #999;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.footer p{
+    padding-bottom: 15px;
+}
