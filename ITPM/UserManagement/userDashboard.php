@@ -31,7 +31,7 @@ session_start();
                     <li><a class="active" href="#">Home</a></li>
                     <li><a href="#">Book Ticket</a></li>
                     <li><a href="#">My Bookings</a></li>
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="userProfile.php">My Profile</a></li>
                     <li><a href="./includes/logout.php">Log Out</a></li>
                 </ul>
             </nav>

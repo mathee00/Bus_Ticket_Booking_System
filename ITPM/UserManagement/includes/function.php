@@ -153,8 +153,69 @@ function check_login($conn)
         }
     }
 
-    //redirect to login
+    // redirect to login
     header("Location: ../userLogin.php");
     die;
+}
+
+// update profile
+
+function emptyInputUpdate($firstname, $lastname, $username, $email) {
+	$result;
+	if (empty($firstname) || empty($lastname) || empty($username) || empty($email)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function updateUser($conn, $firstname, $lastname, $username, $email, $gender, $dob) {
+	$loggedInUser = $_SESSION['username'];
+
+    $sql = "UPDATE user SET firstname = '$firstname' , lastname = '$lastname' , username = '$username' , email = '$email' , gender = '$gender' , dob = '$dob' WHERE username = '$loggedInUser'";
+
+    $results = mysqli_query($conn, $sql);
+    header('location: ../userDashboard.php');
+	exit();
+}
+
+//delete
+
+function emptyInputDelete($dusername, $dpassword) {
+	$result;
+	if (empty($dusername) || empty($dpassword)) {
+		$result = true;
+	} else {
+		$result = false;
+	}
+	return $result;
+}
+
+function deleteUser($conn, $dusername, $dpassword) {
+	$usernameExists = usernameExists($conn, $dusername, $dusername);
+
+	if ($usernameExists === false) {
+		header("location: ../userProfile.php?error=wronginput");
+		exit();
+	}
+
+	$passwordHashed = $usernameExists["password"];
+	$checkpassword = password_verify($dpassword, $passwordHashed);
+
+	if ($checkpassword === false) {
+		header("location: ../userProfile.php?error=wronginput");
+		exit();
+	} else if ($checkpassword === true) {
+		$sql = "INSERT INTO deleted_user
+				SELECT * FROM user
+				WHERE username = '$dusername'";
+		$sql_run = mysqli_query($conn, $sql);
+
+		$query = "DELETE FROM user WHERE username = '$dusername'";
+    	$query_run = mysqli_query($conn, $query);
+		header("location: ../home.php");
+		exit();
+	}
 }
 ?>
