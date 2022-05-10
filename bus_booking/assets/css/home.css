@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url(../img/background.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/*----------navigation bar----------*/
+
+.navbar{
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:hover{
+    color: #3FC060;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.navbar ul li a.active{
+    color: #3FC060;
+}
+
+.navbar ul li a.active::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+/*----------welcome note----------*/
+
+.description{
+    padding: 0 7%;
+}
+
+.description h1{
+    font-size: 3vw;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 6px;
+    color: #fff;
+    margin-top: 12%;
+    margin-bottom: 12px;
+}
+
+.cname{
+    color: #3FC060;
+}
+
+.description h2{
+    font-size: 2vw;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 6px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.description h3{
+    font-size: 1vw;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 6px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+/*----------top destinations----------*/
+
+.container{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.sub-title{
+    margin: 50px 0 20px;
+    font-size: 2vw;
+    font-weight: 500;
+    color: #000;
+}
+
+.destinations{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 30px;
+}
+
+.destinations div img{
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.destinations div{
+    position: relative;
+}
+
+.destinations div span{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-100%,-100%);
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+
+.destinations h3{
+    font-size: 1vw;
+}
+
+.destinations p{
+    font-size: 0.8vw;
+}
+
+.card{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+/*----------services----------*/
+
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 30px;
+}
+
+.scard{
+    height: 100px;
+    text-align: center;
+    display: block;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 2px;
+    box-shadow: -1px 4px 28px 0px rgba(150, 150, 150, 0.4);
+}
+
+.scard img{
+    width: 75px;
+    height: 75px;
+}
+
+.scard h3{
+    font-size: 0.8vw;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/*----------footer----------*/
+
+.footer{
+    margin: 80px 0 10px;
+    text-align: center;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #999;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.footer hr{
+    background: #999;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.footer p{
+    padding-bottom: 15px;
+}
