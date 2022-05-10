@@ -8,10 +8,9 @@ User
 username: ajward30
 password: 12121212
 
-**Database connection Configuration**
 
-server name should be changed in following files according to pc localhost settings
+**Database Connection Configuration**
 
-db_connect
-
-UserManagement/includes/config
+Server name should be changed in following files according to pc localhost settings
+->  db_connect.php
+->  UserManagement/includes/config.php
