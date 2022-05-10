@@ -17,7 +17,7 @@
                 <ul>
                     <li><a class="active" href="#">Home</a></li>
                     <li><a href="userLogin.php">User Login</a></li>
-                    <li><a href="#">Admin Login</a></li>
+                    <li><a href="../admin.php">Admin Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -132,8 +132,6 @@
             <p>Copyright 2022 © SLIIT Y3S1 IT Students. All Rights Reserved.</p>
         </div>
     </div>
-
     
-
 </body>
 </html>

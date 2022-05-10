@@ -29,8 +29,8 @@ session_start();
             <nav>
                 <ul>
                     <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">Book Ticket</a></li>
-                    <li><a href="#">My Bookings</a></li>
+                    <li><a href="bookTicket.php">Book Ticket</a></li>
+                    <li><a href="myBooking.php">My Bookings</a></li>
                     <li><a href="userProfile.php">My Profile</a></li>
                     <li><a href="./includes/logout.php">Log Out</a></li>
                 </ul>
@@ -40,112 +40,88 @@ session_start();
         <!----------search field---------->
         <div class="search-box">
             <div class="search-bar">
-                <form>
+                <form method="POST">
                     <h1>Search Available Buses for Your Journey</h1>
                     <div class="from-input">
                         <label>From: </label>
-                        <input type="text" placeholder="Start Point">
+                        <input type="text" placeholder="Start Point" name="spoint" id="spoint" required>
                     </div>
                     <div class="to-input">
                         <label>To: </label>
-                        <input type="text" placeholder="End Point">
+                        <input type="text" placeholder="End Point" name="epoint" id="epoint">
                     </div>
-                    <button type="submit"><span></span>SEARCH BUSES</button>
+                    <button type="submit" name="search"><span></span>SEARCH BUSES</button>
                 </form>
             </div>
         </div>   
     </div>
 
-    <!----------top destinations---------->
-    <div class="container">
-        <h2 class="sub-title">Top Destinations</h2>
-        <div class="destinations">
-            <div class="card">
-                <img src="images/nuwaraeliya.jpg">
-                <span>
-                    <h3>Nuwara Eliya</h3>
-                    <p>Central Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/matara.jpg">
-                <span>
-                    <h3>Matara</h3>
-                    <p>Southern Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/colombo.jpg">
-                <span>
-                    <h3>Colombo</h3>
-                    <p>Western Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/batticaloa.JPG">
-                <span>
-                    <h3>Batticaloa</h3>
-                    <p>Eastern Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/galle.jpg">
-                <span>
-                    <h3>Galle</h3>
-                    <p>Southern Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/badulla.jpg">
-                <span>
-                    <h3>Badulla</h3>
-                    <p>Uva Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/trincomalee.jpg">
-                <span>
-                    <h3>Trincomalee</h3>
-                    <p>Eastern Province</p>
-                </span>
-            </div>
-            <div class="card">
-                <img src="images/jaffna.jpg">
-                <span>
-                    <h3>Jaffna</h3>
-                    <p>Northern Province</p>
-                </span>
-            </div>
-        </div>
+    <!----------search result---------->
+    <div class="card-booking">
+        <div class="card-body">
+            <table class ="content-table">
+                <thead>
+                    <tr>
+                        <th>Bus Number</th>
+                        <th>Bus Type</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <?php
+                    if (isset($_POST['search'])) {
+                        $search = mysqli_real_escape_string($conn, $_POST['spoint']);
+                        $sql = "SELECT *
+                                FROM ((schedule_list
+                                INNER JOIN bus ON schedule_list.bus_id = bus.id)
+                                INNER JOIN location ON schedule_list.from_location = location.id)
+                                WHERE schedule_list.from_location LIKE '%$search%'";
+                        $result = mysqli_query($conn, $sql);
+                        $queryResult = mysqli_num_rows($result);
 
-        <!----------services---------->
-        <h2 class="sub-title">Why Book with Zara Bus Service?</h2>
-        <div class="services">
-            <div class="scard">
-                <img src="images/bookingsuccess.png">
-                <span>
-                    <h3>Successful Bookings</h3>
-                </span>
-            </div>
-            <div class="scard">
-                <img src="images/customersupport.png">
-                <span>
-                    <h3>Customer Support</h3>
-                </span>
-            </div>
-            <div class="scard">
-                <img src="images/choice.png">
-                <span>
-                    <h3>More Choices</h3>
-                </span>
-            </div>
-            <div class="scard">
-                <img src="images/bestprice.png">
-                <span>
-                    <h3>Best Price</h3>
-                </span>
-            </div>
+                            if ($queryResult > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $from_location = $conn->query("SELECT id,Concat(city) as location FROM location where id = ".$row['from_location'])->fetch_array()['location'];
+                                    $to_location = $conn->query("SELECT id,Concat(city) as location FROM location where id = ".$row['to_location'])->fetch_array()['location'];
+                ?>
+                        
+                <tbody>
+                    <tr>
+                        <td><?php echo $row['bus_number']; ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['from_location'] = $from_location; ?></td>
+                        <td><?php echo $row['to_location'] = $to_location; ?></td>
+                        <td><?php echo $row['departure_time']; ?></td>
+                        <td><?php echo $row['eta']; ?></td>
+                        <td>LKR <?php echo $row['price']; ?></td>
+                        <td>
+                            <form action="./includes/booking.php" method="POST">
+                                <input type="hidden" name="sid" value="<?php echo $row['id']; ?>"></input>
+                                <input type="hidden" name="uname" value="<?php echo $_SESSION['username']; ?>"></input>
+                                <input type="number" id="quantity" name="quantity" min="1" max="30" required></input>
+                                                        
+                        </td>
+                        <td>
+                            <button name="book">Book</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php 
+                                }
+                            } else {
+                                echo "There are no results matching your search!";
+                            }
+                    }
+                ?>
+            </table>
         </div>
+    </div>
 
         <!----------footer---------->
         <div class="footer">

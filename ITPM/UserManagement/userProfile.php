@@ -29,8 +29,8 @@ session_start();
             <nav>
                 <ul>
                     <li><a href="userDashboard.php">Home</a></li>
-                    <li><a href="#">Book Ticket</a></li>
-                    <li><a href="#">My Bookings</a></li>
+                    <li><a href="bookTicket.php">Book Ticket</a></li>
+                    <li><a href="myBooking.php">My Bookings</a></li>
                     <li><a class="active" href="#">My Profile</a></li>
                     <li><a href="./includes/logout.php">Log Out</a></li>
                 </ul>

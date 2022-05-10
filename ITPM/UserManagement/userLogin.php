@@ -20,7 +20,7 @@
                 <ul>
                     <li><a href="home.php">Home</a></li>
                     <li><a class="active" href="#">User Login</a></li>
-                    <li><a href="#">Admin Login</a></li>
+                    <li><a href="../admin.php">Admin Login</a></li>
                 </ul>
             </nav>
         </div>

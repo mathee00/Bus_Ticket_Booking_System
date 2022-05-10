@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/*----------navigation bar----------*/
+
+.navbar{
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color:  #162328;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:hover{
+    color: #3FC060;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.navbar ul li a.active{
+    color: #3FC060;
+}
+
+.navbar ul li a.active::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #3FC060;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+.header hr{
+    background:  #162328;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/*----------schedule view----------*/
+
+.card-booking {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 2px;
+    box-shadow: -1px 4px 28px 0px rgba(150, 150, 150, 0.4);
+}
+
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3FC060;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.content-table thead tr {
+    background-color: #3FC060;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th, 
+.content-table td {
+    padding: 15px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #999;
+    color: #162328;
+    text-align: center;
+}
+
+.content-table tbody td button {
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #3FC060;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #3FC060;
+    transition: 0.6s;
+}
+
+.content-table tbody td button:hover {
+    background-position: 100% 0%;
+    background-color: #3FC060;
+    color: #ffffff;
+    border: 1px solid #3FC060;
+}
+
+/*----------footer----------*/
+
+.footer{
+    margin: 80px 0 10px;
+    text-align: center;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #999;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.footer hr{
+    background: #999;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.footer p{
+    padding-bottom: 15px;
+}

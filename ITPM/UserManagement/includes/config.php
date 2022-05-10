@@ -2,7 +2,7 @@
 $servername = "localhost"; 
 $dbusername = "root"; 
 $dbpassword = "";
-$dbName = "bus_ticket";
+$dbName = "bus_booking";
 
 
 // Create connection 

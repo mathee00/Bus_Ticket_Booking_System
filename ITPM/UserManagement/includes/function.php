@@ -218,4 +218,32 @@ function deleteUser($conn, $dusername, $dpassword) {
 		exit();
 	}
 }
+
+//book
+
+function book($conn, $sid, $uname, $quantity) {
+    $sql = "INSERT INTO booked (schedule_id, name, qty) VALUES (?,?,?);";
+	$stmt = mysqli_stmt_init($conn);
+	if (!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../bookTicket.php?error=stmtfailed");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "isi",$sid, $uname, $quantity);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);
+	header("location: ../myBooking.php?error=none");
+	exit();
+}
+
+//cancel booking
+
+function cancelbooking($conn, $rno) {
+
+	$cbquery = "DELETE FROM booked WHERE ref_no = '$rno'";
+                    $query_run = mysqli_query($conn, $cbquery);
+                    header("location: ../myBooking.php");
+                    exit();
+	
+}
 ?>
